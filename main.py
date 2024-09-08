@@ -13,6 +13,13 @@ load_dotenv()
 # Access environment variables
 LLM_api = os.getenv('GOOGLE_API_KEY')
 
+
+model = GoogleGenerativeAI(
+                    model="gemini-1.5-flash", 
+                    google_api_key=LLM_api
+                )
+
+
 # Set up the directory for ChromaDB
 current_dir = os.path.dirname(os.path.abspath(__file__))
 path_db = os.path.join(current_dir, 'Vector Databases', 'Chroma1')
@@ -47,12 +54,13 @@ def log_file_upload(filename):
 def create_prompt_template(variables):
     template = ChatPromptTemplate.from_messages(
         [
-            ('system', '''You are an AI assistant designed to assist customers of Bookme.Pk through their mobile app or website. Your role is to provide clear, accurate, and relevant answers to user queries. Provide helpful and precise responses based on the information available to you.
+            ('system', '''You are BookieBee, a helpful assistant developed by Bookme.pk to assist users with booking-related queries on the Bookme website and mobile app. Your main goals are:
 
-If you are unable to provide an answer, suggest that the user contact our support team for further assistance. Only do this if you truly cannot provide the necessary information.
-
-Always aim to assist the user efficiently, while remaining courteous and professional, do not mention any internal mechanisms or show the user that you are using any information source to answer their queries and try to make the response readable using bullets, headings, and sub-headings where needed. If the user asks for your introduction, tell them that you are BookieBee developed by Bookme.pk. Also, don't make up any facts or information on your own; strictly rely only on the database.
-'''),
+Guide users professionally and efficiently with responses based solely on the knowledge and context you have access to.
+Do not reveal or mention any internal mechanisms, such as a knowledge base or context being used.
+If a query isn't related to Company's information and your role , don't start going into it's details or guiding with it and take it as a joke.
+Always introduce yourself as BookieBee, making the conversation engaging and friendly.
+Use decent and professional emojis where appropriate to make interactions more appealing and light-hearted.'''),
 
             ('human', 'Based on the following context, answer the query: {context}\nQuery: {query}')
         ]
@@ -168,13 +176,11 @@ with tab_user:
             # Extract the most recent document (MR)
             if recent_docs:
                 MR = recent_docs[0]
+               
                 W = recent_docs[1:]
 
                 # Use LLM to determine which embeddings from W are valid or complement MR
-                model = GoogleGenerativeAI(
-                    model="gemini-1.5-flash", 
-                    google_api_key=LLM_api
-                )
+                
 
                 # Prepare variables for the LLM
                 variables = {
@@ -184,25 +190,19 @@ with tab_user:
 
                 # Generate the prompt
                 final_prompt = fill_in_template(create_prompt_template(variables))
-
                 # Invoke the model and get the result
                 result = model.invoke(final_prompt)
-                
+           
                 # Process LLM output
-                if isinstance(result, list):
-                    # Expecting a list of valid indices or documents
-                    valid_embeddings = [int(idx) for idx in result if idx.isdigit()]
-                else:
-                    st.error("Unexpected LLM output format. Expected a list of indices.")
-                    valid_embeddings = []
+                
 
                 # Now, compare user's query with valid embeddings
-                final_docs = [MR] + [W[int(idx)] for idx in valid_embeddings]
-                context = " ".join([doc.page_content for doc in final_docs])
+                final_docs = [MR.page_content] + [result]
+        
 
                 # Call LLM again for the final response
                 variables = {
-                    'context': context,
+                    'context': final_docs,
                     'query': query_text
                 }
                 final_prompt = fill_in_template(create_prompt_template(variables))
@@ -210,7 +210,15 @@ with tab_user:
 
                 st.write("Response:", final_result)
             else:
-                st.write("No documents found.")
+                variables = {
+                    'context': 'Theres no context , answer as per query and your described role' ,
+                    'query': query_text
+                }
+                final_prompt = fill_in_template(create_prompt_template(variables))
+                final_result = model.invoke(final_prompt)
+                st.write("Response:", final_result)
+
+                
             
         except ValueError as ve:
             st.error(f"ValueError: {ve}")
