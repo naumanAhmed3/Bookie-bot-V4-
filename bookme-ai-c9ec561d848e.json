@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "bookme-ai",
+  "private_key_id": "c9ec561d848e2ed1f49578bbeab8f817f5ee470e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDPlx/GnU2uMe8H\nWFHeQcD2D7CRm+MY9Vx7NPcJSZGImvoRxWgYXj06izfiWtxUOK62nIsdrYI6Mdb9\nxVZw4zKdDE3CilowzUCHkCKr+e/BMX0QiT3uzAyQcZuPDHEbaxelQ2V/f9SXvwkg\ntIXM9pb7qFGBeJnEej/ya9nzPqMnEbmEZSHILHqWLzz5L8S+FTtLCx8CaF7epX2H\nwcJ8u2WrSqNLXznFc/2D38OIKvzdymQytHR//n0d+DFV128ZgIWOPGI9dIBfRWaP\nGnutWom393LXq2V3PAOIm6z5OoVT0uNTYZtx/43X9sXyXg8vc76rVj0yCY8Awtvh\nx/hbfff3AgMBAAECggEAIMVwxMAMhVVosLYmpnmm5rFvZG1Bmq0RXnnsDdFJYlFk\n7O1HE6G89MMJnXhOlBUmr7li1NqRVnKLyCAhF00mrlhE5lNFDbM5Xq1Ia/HXAZ64\naaXg2xPnX94vepOyP2vWncZX/ZrGivYjkMAu5z5+c1gNFe1eCQBrm++exqG6y+3d\nVMTAc/TMGLfSf0B5M9yl9kxS76SY8Q4K/q2xJ6yh/cwcloyAQYd0emclK64dWjR7\nWNm6llXhEvNmeYT7an2d8/OxRrLd+zMs3hvnwLDlLSgSW3mfCqLpZ+m0ABGOmeJu\nHWd7j9jIa44tYKQ6hN6UpJn8oO7r8nLA44k4LPAzkQKBgQD7qZLf18FCIB26A48W\nVyREFtAwEJNMJHO4gTmutYaBdRYaXHyK552RRx7dTpw+jHn6zC3Uq+vET2/59yWb\nXJpJVomGvPsub+Rmd2Ko8I4o6A8n0/CrQ6HypMPA15nbY6pS7k6HvuuiI2pjMQlY\nThV8r2Cm1tuMaFpGuYr7S58aiwKBgQDTKxaekAkJHQrATDUIwiadXEI6HglRVoB0\nMbejmuubwEX+mT6pLLppnjRECHvDmttiY8cFktY2iNd12aK1z5SFH6gJ6WJj8msk\nx+APZQpjuwrMSaf1bpej2SBsjsJMhOSeDrp4UxzSaJ6S/EfRoEO+kKeDxoecUd8F\n7rsXI1wBxQKBgDrMU9SYxD5+4nMjgbrmgUKnUdzpAoE3wxHIn4GCR/rXMGLYWQDb\nPKVEyKFMTJUQnS9LpSmbQWqMZM0yQUcbS7D21wrz/HvNCMAoBJUUHyLPlTro+cIJ\n+zyF4nab6QapMpJNu2tb4BHx1Fl4i4ZmN/75ustAR+t2NiFwGFi+Ql4hAoGAXCZG\ndaVXPBHfWjEnR44p+auD/waSfFsqLQpxH8UAIfSS1tqa3Ip3QpXWKwYktCRErjfq\nZsVAE4Y9t+DkP0C5iCpbUw/0brcgCGnsnesy0HiT6rgNwm2jYM3kd1sI8QlhFpRI\nzS8/uZYL9QqAcLrmNSe84iVlklKr51PZcuxsPx0CgYEAn0Xe+sRMLcUBDet3yBru\nokd/oqfQrQOU7jjkyK6zXeu/sthdXIfrw2vvN115ZS/uj7M3ezWxQYc4CmWBFqkv\n8t86/Z+ogZk1tRYnwG9dsBho4S+OSd8uJqFRinTk9UDiPFKGsO7cD9DmVToDvsl0\niHD1gPoUgnjb/FedeYxJ1Y8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "bookiebot@bookme-ai.iam.gserviceaccount.com",
+  "client_id": "107810221296027362937",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bookiebot%40bookme-ai.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
