@@ -1,0 +1,7 @@
+
+langchain_community
+langchain_google_genai
+chromadb
+google-cloud-storage==2.8.0
+streamlit
+
