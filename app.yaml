@@ -1,0 +1,7 @@
+runtime: python310
+
+entrypoint: streamlit run main.py --server.port $8501 --server.headless true
+
+handlers:
+  - url: /.*
+    script: auto
