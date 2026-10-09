@@ -1,0 +1,6 @@
+bookme-ai-*.json
+*.log
+logs.txt
+upload_log.txt
+.env*
+!*.example
